@@ -288,14 +288,14 @@ export default function GireoLandingPage() {
               className="rounded-2xl px-4 py-2 text-sm font-medium"
               style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
             >
-              Scopri come accedere
+              Richiedi accesso
             </a>
             <a
               href="#accesso-anteprima"
               className="rounded-2xl px-5 py-2.5 text-sm font-semibold text-white"
               style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
             >
-              Ottieni accesso anticipato
+              Entra in lista d’attesa
             </a>
           </div>
         </div>
@@ -347,14 +347,14 @@ export default function GireoLandingPage() {
                 className="rounded-2xl px-6 py-4 text-center text-sm font-semibold text-white"
                 style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
               >
-                Ottieni accesso anticipato
+                Entra nella lista di lancio
               </a>
               <a
                 href="#guadagni"
                 className="rounded-2xl px-6 py-4 text-center text-sm font-semibold"
                 style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
               >
-                Scopri come funziona
+                Scopri come guadagnare
               </a>
             </div>
 
@@ -652,7 +652,7 @@ export default function GireoLandingPage() {
 
               <div className="rounded-[28px] bg-white/95 p-6 shadow-sm md:p-7">
                 <h3 className="text-xl font-semibold" style={{ color: BRAND.text }}>
-                  Accedi in anteprima a Gireo
+                  Entra in lista d’attesa
                 </h3>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
                   Lascia i tuoi dati per essere tra i primi a provare Gireo, come noleggiatore o come proprietario.
@@ -730,7 +730,7 @@ export default function GireoLandingPage() {
                     className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-70 cursor-pointer"
                     style={{ backgroundColor: BRAND.primary }}
                   >
-                    {isSubmitting ? 'Invio in corso...' : 'Ottieni accesso anticipato'}
+                    {isSubmitting ? 'Invio in corso...' : 'Richiedi accesso'}
                     {!isSubmitting && <ArrowRight className="h-4 w-4" />}
                   </button>
                 </form>
