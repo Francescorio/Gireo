@@ -655,7 +655,12 @@ export default function GireoLandingPage() {
                   Accedi in anteprima a Gireo
                 </h3>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                  Lascia i tuoi dati per essere tra i primi a provare Gireo, come noleggiatore o come proprietario.
+                  Accesso anticipato riservato ai primi utenti.
+
+                  Registrandoti ora potrai:
+                  • essere tra i primi a pubblicare e guadagnare  
+                  • testare la piattaforma prima degli altri  
+                  • partire con un vantaggio quando Gireo sarà online per tutti
                 </p>
 
                 <form className="mt-6 space-y-3" onSubmit={handlePreviewAccess}>
