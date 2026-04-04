@@ -643,18 +643,9 @@ export default function GireoLandingPage() {
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">Lancio Gireo</p>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl">
-                  Vuoi provare Gireo prima del lancio?
+                  Accedi in anteprima a Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-                  Lascia i tuoi dati se vuoi usare Gireo per noleggiare prodotti oppure per iniziare a guadagnare mettendo a noleggio attrezzatura, dispositivi e beni professionali che oggi restano fermi.
-                </p>
-              </div>
-
-              <div className="rounded-[28px] bg-white/95 p-6 shadow-sm md:p-7">
-                <h3 className="text-xl font-semibold" style={{ color: BRAND.text }}>
-                  Accedi in anteprima a Gireo
-                </h3>
-                <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
                   Accesso anticipato riservato ai primi utenti.
                   <br />
                   <br />
@@ -665,6 +656,14 @@ export default function GireoLandingPage() {
                   • testare la piattaforma prima degli altri
                   <br />  
                   • partire con un vantaggio quando Gireo sarà online per tutti
+                </p>
+              </div>
+
+              <div className="rounded-[28px] bg-white/95 p-6 shadow-sm md:p-7">
+                <h3 className="text-xl font-semibold" style={{ color: BRAND.text }}>
+                </h3>
+                <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
+                  
                 </p>
 
                 <form className="mt-6 space-y-3" onSubmit={handlePreviewAccess}>
