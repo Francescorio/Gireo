@@ -656,10 +656,14 @@ export default function GireoLandingPage() {
                 </h3>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
                   Accesso anticipato riservato ai primi utenti.
-
+                  <br />
+                  <br />
                   Registrandoti ora potrai:
-                  • essere tra i primi a pubblicare e guadagnare  
-                  • testare la piattaforma prima degli altri  
+                  <br />
+                  • essere tra i primi a pubblicare e guadagnare
+                  <br />  
+                  • testare la piattaforma prima degli altri
+                  <br />  
                   • partire con un vantaggio quando Gireo sarà online per tutti
                 </p>
 
