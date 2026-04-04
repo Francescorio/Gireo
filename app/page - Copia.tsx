@@ -185,7 +185,6 @@ export default function GireoLandingPage() {
   });
   const [formError, setFormError] = useState('');
   const [formSuccess, setFormSuccess] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -194,7 +193,7 @@ export default function GireoLandingPage() {
     if (formSuccess) setFormSuccess('');
   };
 
-  const handlePreviewAccess = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handlePreviewAccess = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (
@@ -215,47 +214,11 @@ export default function GireoLandingPage() {
       return;
     }
 
-    setIsSubmitting(true);
     setFormError('');
-    setFormSuccess('');
-
-    try {
-      const response = await fetch('https://formspree.io/f/mjgpaqjk', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: formData.fullName,
-          email: formData.email,
-          profileType: formData.profileType,
-          useCase: formData.useCase,
-        }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setFormSuccess('Richiesta inviata correttamente. Ti contatteremo al lancio di Gireo.');
-        setFormData({
-          fullName: '',
-          email: '',
-          useCase: '',
-          profileType: '',
-        });
-      } else {
-        if (result?.errors?.length) {
-          setFormError(result.errors.map((err: { message: string }) => err.message).join(' '));
-        } else {
-          setFormError('Errore nell’invio. Riprova.');
-        }
-      }
-    } catch (error) {
-      setFormError('Errore di connessione. Riprova.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setFormSuccess(
+      'Richiesta registrata in questa demo. Prossimo passo: collegare il form a Formspree, Airtable o Google Sheets per salvare davvero i lead.'
+    );
+    setFormData({ fullName: '', email: '', useCase: '', profileType: '' });
   };
 
   return (
@@ -726,12 +689,10 @@ export default function GireoLandingPage() {
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-70 cursor-pointer"
+                    className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white"
                     style={{ backgroundColor: BRAND.primary }}
                   >
-                    {isSubmitting ? 'Invio in corso...' : 'Richiedi accesso'}
-                    {!isSubmitting && <ArrowRight className="h-4 w-4" />}
+                    Richiedi accesso <ArrowRight className="h-4 w-4" />
                   </button>
                 </form>
 
