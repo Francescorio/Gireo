@@ -118,8 +118,8 @@ const featuredProducts = [
 const trustPoints = [
   {
     icon: ShieldCheck,
-    title: 'Utenti verificati',
-    text: 'Chi utilizza Gireo viene verificato per aumentare sicurezza e affidabilità.',
+    title: 'Cauzione e assicurazione',
+    text: 'Pagamento in piattaforma, cauzione e copertura integrata.',
   },
   {
     icon: Truck,
@@ -128,8 +128,8 @@ const trustPoints = [
   },
   {
     icon: BadgeCheck,
-    title: 'Cauzione e copertura',
-    text: 'Pagamento in piattaforma con cauzione e assicurazioni integrate.',
+    title: 'Più tutela',
+    text: 'Più sicurezza per chi noleggia e per chi pubblica.',
   },
 ];
 
@@ -555,7 +555,7 @@ export default function GireoLandingPage() {
           <SectionTitle
             eyebrow="Sicurezza"
             title="Più tutela per utenti e prodotti."
-            text="Pagamento in piattaforma, cauzione, utenti verificati, tracking e assicurazioni integrate."
+            text="Pagamento in piattaforma, cauzione, tracking e assicurazioni integrate."
           />
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -581,14 +581,14 @@ export default function GireoLandingPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
-                icon: ShieldCheck,
-                title: 'Utenti verificati',
-                text: 'Chi utilizza Gireo viene verificato per aumentare affidabilità e sicurezza.',
-              },
-              {
                 icon: CreditCard,
                 title: 'Pagamento protetto',
                 text: 'Il noleggio viene gestito in piattaforma.',
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Cauzione e copertura',
+                text: 'Più tutela per chi noleggia e per chi pubblica.',
               },
               {
                 icon: Truck,
