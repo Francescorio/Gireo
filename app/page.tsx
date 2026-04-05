@@ -648,7 +648,16 @@ export default function GireoLandingPage() {
                   Accedi in anteprima a Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-                  Registrati ora per accedere in anteprima a Gireo e partire tra i primi.
+                    Accedi a Gireo prima del lancio ufficiale.
+                    <br />
+                    <br />
+                    Gli utenti selezionati potranno:
+                    <br />
+                    • pubblicare per primi i propri prodotti
+                    <br />
+                    • testare la piattaforma in anteprima
+                    <br />
+                    • partire con un vantaggio quando apriremo al pubblico
                 </p>
               </div>
 
