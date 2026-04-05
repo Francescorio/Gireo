@@ -4,19 +4,13 @@ import React, { useState } from 'react';
 import {
   ArrowRight,
   BadgeCheck,
+  Banknote,
   Boxes,
-  Camera,
+  CheckCircle2,
+  Clock3,
   CreditCard,
-  Drill,
-  Monitor,
-  PackageCheck,
-  Search,
-  Send,
-  Shield,
   ShieldCheck,
-  Tablet,
   Truck,
-  Waypoints,
 } from 'lucide-react';
 
 const BRAND = {
@@ -33,7 +27,6 @@ const BRAND = {
 };
 
 const categories = [
-  'Tablet e laptop',
   'Videocamere e fotocamere',
   'Droni professionali',
   'Attrezzatura da lavoro',
@@ -41,110 +34,73 @@ const categories = [
   'Device aziendali',
 ];
 
-const flowSteps = [
-  {
-    icon: PackageCheck,
-    title: 'Pubblica il prodotto',
-    text: 'Inserisci il bene che vuoi mettere a noleggio.',
-  },
-  {
-    icon: Search,
-    title: 'Ricevi una richiesta',
-    text: 'Chi ne ha bisogno invia la richiesta in piattaforma.',
-  },
-  {
-    icon: Shield,
-    title: 'Gireo gestisce il flusso',
-    text: 'Pagamento, cauzione, assicurazione e tracking.',
-  },
-  {
-    icon: Send,
-    title: 'Spedisci e guadagni',
-    text: 'Il prodotto parte, viene usato e poi restituito.',
-  },
-];
-
-const featuredProducts = [
-  {
-    icon: Camera,
-    name: 'Sony A7 III',
-    category: 'Videocamera',
-    price: '35€/giorno',
-    deposit: '200€',
-    badge: 'Verificato',
-  },
-  {
-    icon: Waypoints,
-    name: 'DJI Mavic 3 Pro',
-    category: 'Drone professionale',
-    price: '55€/giorno',
-    deposit: '300€',
-    badge: 'Assicurabile',
-  },
-  {
-    icon: Tablet,
-    name: 'iPad Pro 12.9"',
-    category: 'Tablet',
-    price: '24€/giorno',
-    deposit: '150€',
-    badge: 'Verificato',
-  },
-  {
-    icon: Drill,
-    name: 'Bosch Professional',
-    category: 'Trapano',
-    price: '18€/giorno',
-    deposit: '80€',
-    badge: 'Assicurabile',
-  },
-  {
-    icon: Monitor,
-    name: 'Monitor 27"',
-    category: 'Device aziendale',
-    price: '16€/giorno',
-    deposit: '90€',
-    badge: 'Verificato',
-  },
-  {
-    icon: Boxes,
-    name: 'Kit luci LED',
-    category: 'Eventi',
-    price: '28€/giorno',
-    deposit: '120€',
-    badge: 'Assicurabile',
-  },
-];
-
 const trustPoints = [
   {
     icon: ShieldCheck,
-    title: 'Cauzione e assicurazione',
-    text: 'Pagamento in piattaforma, cauzione e copertura integrata.',
+    title: 'Pagamento e cauzione gestiti da Gireo',
+    text: 'Chi noleggia paga in piattaforma. La cauzione resta protetta e viene sbloccata a fine noleggio se tutto è regolare.',
   },
   {
     icon: Truck,
-    title: 'Spedizione tracciata',
-    text: 'Tracking e reso in un flusso semplice.',
+    title: 'Spedizione integrata e tracciata',
+    text: 'Gireo può gestire etichetta, tracking e reso in un flusso semplice, così il noleggio è ordinato anche a distanza.',
   },
   {
     icon: BadgeCheck,
-    title: 'Più tutela',
-    text: 'Più sicurezza per chi noleggia e per chi pubblica.',
+    title: 'Più fiducia per entrambe le parti',
+    text: 'Richieste strutturate, utenti verificati e passaggi chiari. Molto meglio del solito scambio improvvisato in chat.',
+  },
+];
+
+const steps = [
+  {
+    number: '1',
+    title: 'Pubblica o trova un prodotto',
+    text: 'Chi ha attrezzatura inutilizzata la mette online. Chi ne ha bisogno trova quello che serve senza acquistarlo.',
+  },
+  {
+    number: '2',
+    title: 'Gireo gestisce il flusso',
+    text: 'Richiesta, pagamento, cauzione e consegna vengono organizzati in modo più chiaro, sicuro e tracciato.',
+  },
+  {
+    number: '3',
+    title: 'Uno usa, l’altro guadagna',
+    text: 'Chi noleggia ottiene un prodotto per il tempo che serve. Chi lo pubblica monetizza un bene che prima restava fermo.',
+  },
+];
+
+const earningCards = [
+  {
+    title: 'Metti a reddito ciò che già possiedi',
+    text: 'Molti oggetti costosi vengono usati solo in alcuni periodi: tablet, monitor, videocamere, droni, trapani, kit tecnici. Su Gireo possono iniziare a rendere.',
+  },
+  {
+    title: 'Non devi vendere per liberarti di un bene',
+    text: 'Se un prodotto ti serve ancora, ma non sempre, puoi mantenerne la proprietà e farlo lavorare nei momenti in cui resta fermo.',
+  },
+  {
+    title: 'Più ordine, meno frizione',
+    text: 'Gireo rende il noleggio più semplice da gestire perché struttura richiesta, pagamento, cauzione e consegna in un unico percorso.',
   },
 ];
 
 const faqs = [
   {
-    q: 'Cos’è Gireo?',
-    a: 'Una piattaforma per noleggiare prodotti e mettere a reddito beni inutilizzati.',
+    q: 'Cos’è Gireo, in concreto?',
+    a: 'Gireo è una piattaforma di noleggio che aiuta due tipi di utenti: chi ha bisogno di attrezzatura per un periodo limitato e chi vuole guadagnare mettendo a noleggio beni inutilizzati, inclusi privati, professionisti e negozi.',
   },
   {
-    q: 'Cosa posso pubblicare?',
-    a: 'Elettronica, attrezzatura professionale, droni, strumenti da lavoro e materiale per eventi.',
+    q: 'Che tipo di prodotti si possono pubblicare?',
+    a: 'Dispositivi elettronici, attrezzatura professionale, videocamere, fotocamere, droni, strumenti da lavoro, materiale per eventi e altri prodotti usati in modo saltuario, anche provenienti da negozi e attività.',
   },
   {
-    q: 'Come funziona la sicurezza?',
-    a: 'Pagamento in piattaforma, cauzione, tracking e assicurazione integrata.',
+    q: 'Come funziona il guadagno per chi pubblica?',
+    a: 'Il proprietario decide cosa mettere a noleggio e a quale prezzo. Quando il prodotto viene noleggiato, può trasformare un bene fermo in un’entrata, sia che sia un privato sia un’attività.',
+  },
+  {
+    q: 'Come viene gestita la sicurezza?',
+    a: 'Gireo non è una semplice bacheca: struttura il noleggio con pagamento in piattaforma, cauzione, tracking e un flusso progettato per diventare sempre più sicuro, anche con coperture assicurative dedicate.',
   },
 ];
 
@@ -201,10 +157,10 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 function RuntimeTests() {
   const invalidCategories = categories.length < 3;
-  const invalidFlowSteps = flowSteps.length !== 4;
+  const invalidSteps = steps.length !== 3;
   const invalidFaqs = faqs.length < 3;
 
-  if (!invalidCategories && !invalidFlowSteps && !invalidFaqs) return null;
+  if (!invalidCategories && !invalidSteps && !invalidFaqs) return null;
 
   return (
     <div
@@ -213,7 +169,7 @@ function RuntimeTests() {
     >
       <p className="font-semibold">Runtime checks failed</p>
       {invalidCategories ? <p>Le categorie sono troppo poche.</p> : null}
-      {invalidFlowSteps ? <p>Il flusso grafico deve avere 4 passaggi.</p> : null}
+      {invalidSteps ? <p>I passaggi principali devono essere 3.</p> : null}
       {invalidFaqs ? <p>Le FAQ devono essere almeno 3.</p> : null}
     </div>
   );
@@ -280,7 +236,7 @@ export default function GireoLandingPage() {
       const result = await response.json();
 
       if (response.ok) {
-        setFormSuccess('Richiesta inviata. Ti ricontatteremo per l’accesso anticipato.');
+        setFormSuccess('Richiesta inviata correttamente. Ti contatteremo al lancio di Gireo.');
         setFormData({
           fullName: '',
           email: '',
@@ -320,7 +276,7 @@ export default function GireoLandingPage() {
 
           <nav className="hidden items-center gap-7 text-sm md:flex" style={{ color: BRAND.muted }}>
             <a href="#come-funziona" className="transition hover:opacity-80">Come funziona</a>
-            <a href="#prodotti" className="transition hover:opacity-80">Prodotti</a>
+            <a href="#guadagni" className="transition hover:opacity-80">Guadagna con Gireo</a>
             <a href="#sicurezza" className="transition hover:opacity-80">Sicurezza</a>
             <a href="#faq" className="transition hover:opacity-80">FAQ</a>
           </nav>
@@ -358,28 +314,28 @@ export default function GireoLandingPage() {
             <div className="mb-6 flex flex-wrap gap-3">
               <Pill>Guadagno da beni inutilizzati</Pill>
               <Pill>Noleggio semplice</Pill>
-              <Pill>Più tutela</Pill>
+              <Pill>Flusso sicuro</Pill>
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
-              Noleggia ciò che ti serve. Fai rendere ciò che non usi.
+              La piattaforma che ti aiuta a <span style={{ color: BRAND.primary }}>guadagnare</span> da ciò che non usi e a <span style={{ color: BRAND.primary }}>noleggiare</span> ciò che ti serve.
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: BRAND.muted }}>
-              Gireo collega chi cerca un prodotto per un periodo limitato e chi vuole monetizzare beni inutilizzati.
+              Gireo nasce per dare valore a oggetti e attrezzature che spesso restano fermi, sia in casa che in negozi, uffici e magazzini. Se hai un prodotto inutilizzato, puoi metterlo a noleggio e trasformarlo in un’entrata. Se invece hai bisogno di uno strumento solo per un periodo limitato, puoi noleggiarlo senza acquistarlo.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}>
-                <p className="text-sm font-semibold">Hai prodotti inutilizzati?</p>
+                <p className="text-sm font-semibold">Per chi possiede attrezzatura (anche negozi e aziende)</p>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                  Mettili a noleggio.
+                  Tablet, monitor, trapani, videocamere, fotocamere, droni e device professionali possono iniziare a generare valore invece di restare inutilizzati.
                 </p>
               </div>
               <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}>
-                <p className="text-sm font-semibold">Cerchi un prodotto?</p>
+                <p className="text-sm font-semibold">Per chi ha bisogno di un prodotto</p>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                  Noleggialo solo quando serve.
+                  Noleggi solo per il tempo che ti serve, con un flusso più chiaro rispetto ai classici accordi improvvisati tra privati.
                 </p>
               </div>
             </div>
@@ -393,7 +349,7 @@ export default function GireoLandingPage() {
                 Ottieni accesso anticipato
               </a>
               <a
-                href="#come-funziona"
+                href="#guadagni"
                 className="rounded-2xl px-6 py-4 text-center text-sm font-semibold"
                 style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
               >
@@ -408,30 +364,77 @@ export default function GireoLandingPage() {
             </div>
           </div>
 
-          <div className="flex items-center">
-            <Card className="w-full p-8 md:p-10">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.bg }}>
-                  <p className="text-sm font-semibold">Chi pubblica</p>
-                  <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                    Monetizza beni fermi.
+          <div className="grid gap-5">
+            <Card className="p-6 md:p-7">
+              <p className="text-sm font-medium" style={{ color: BRAND.primary }}>
+                In due righe
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold">Gireo mette in contatto bisogno e valore inutilizzato.</h3>
+              <div className="mt-6 space-y-4 text-sm leading-7" style={{ color: BRAND.muted }}>
+                <p>
+                  Da una parte c’è chi cerca un prodotto per pochi giorni o per un progetto specifico. Dall’altra c’è chi possiede attrezzatura che usa solo a periodi.
+                </p>
+                <p>
+                  Gireo serve a far incontrare queste due esigenze in un flusso più semplice, più chiaro e più credibile.
+                </p>
+              </div>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl p-4" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-xs uppercase tracking-[0.18em]" style={{ color: BRAND.muted }}>
+                    Chi pubblica
                   </p>
+                  <p className="mt-2 text-lg font-semibold">Guadagna da beni fermi</p>
                 </div>
-                <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.bg }}>
-                  <p className="text-sm font-semibold">Chi noleggia</p>
-                  <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                    Usa solo ciò che serve.
+                <div className="rounded-2xl p-4" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-xs uppercase tracking-[0.18em]" style={{ color: BRAND.muted }}>
+                    Chi noleggia
                   </p>
+                  <p className="mt-2 text-lg font-semibold">Usa ciò che serve, solo quando serve</p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 md:p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium" style={{ color: BRAND.muted }}>
+                    Esempio semplice
+                  </p>
+                  <h3 className="mt-2 text-2xl font-semibold">Quanto può rendere un bene inutilizzato</h3>
+                </div>
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl"
+                  style={{ backgroundColor: BRAND.soft }}
+                >
+                  <Banknote className="h-6 w-6" style={{ color: BRAND.primary }} />
                 </div>
               </div>
 
-              <div className="mt-6 rounded-3xl p-5" style={{ backgroundColor: BRAND.soft }}>
-                <p className="text-sm font-semibold" style={{ color: BRAND.primary }}>
-                  Sicurezza integrata
-                </p>
-                <p className="mt-2 text-sm leading-7" style={{ color: BRAND.text }}>
-                  Pagamento, cauzione, spedizione tracciata e assicurazione.
-                </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="rounded-2xl p-4 min-h-[132px] flex flex-col justify-between overflow-hidden" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.12em] leading-tight break-words" style={{ color: BRAND.muted }}>
+                    Tablet
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold leading-none">24€/g</p>
+                </div>
+                <div className="rounded-2xl p-4 min-h-[132px] flex flex-col justify-between overflow-hidden" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.12em] leading-tight break-words" style={{ color: BRAND.muted }}>
+                    Trapano
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold leading-none">18€/g</p>
+                </div>
+                <div className="rounded-2xl p-4 min-h-[132px] flex flex-col justify-between overflow-hidden" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.08em] leading-tight break-words max-w-[140px]" style={{ color: BRAND.muted }}>
+                    Videocamera
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold leading-none">35€/g</p>
+                </div>
+                <div className="rounded-2xl p-4 min-h-[132px] flex flex-col justify-between overflow-hidden" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.08em] leading-tight break-words max-w-[140px]" style={{ color: BRAND.muted }}>
+                    Drone pro
+                  </p>
+                  <p className="mt-3 text-2xl font-semibold leading-none">55€/g</p>
+                </div>
               </div>
             </Card>
           </div>
@@ -442,110 +445,103 @@ export default function GireoLandingPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Come funziona"
-            title="Come funziona Gireo"
-            text="Un flusso semplice per chi noleggia e per chi pubblica."
+            title="Come funziona Gireo, in modo semplice e chiaro."
+            text="Gireo è pensato per rendere il noleggio più semplice da capire e più facile da usare, sia per chi cerca un prodotto sia per chi vuole guadagnare mettendolo a disposizione."
           />
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {flowSteps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <Card key={step.title} className="h-full p-6 md:p-7">
-                  <div
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl"
-                    style={{ backgroundColor: BRAND.soft }}
-                  >
-                    <Icon className="h-7 w-7" style={{ color: BRAND.primary }} />
-                  </div>
-
-                  <div className="mt-5 flex items-center gap-3">
-                    <span
-                      className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold text-white"
-                      style={{ backgroundColor: BRAND.primary }}
-                    >
-                      {index + 1}
-                    </span>
-                    <h3 className="text-xl font-semibold">{step.title}</h3>
-                  </div>
-
-                  <p className="mt-4 text-base leading-7" style={{ color: BRAND.muted }}>
-                    {step.text}
-                  </p>
-                </Card>
-              );
-            })}
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {steps.map((step) => (
+              <Card key={step.number} className="p-6 md:p-7">
+                <div
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-semibold text-white"
+                  style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
+                >
+                  {step.number}
+                </div>
+                <h3 className="mt-5 text-xl font-semibold">{step.title}</h3>
+                <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
+                  {step.text}
+                </p>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="prodotti" className="px-4 py-16 md:px-6 md:py-24">
+      <section id="guadagni" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
-            eyebrow="Prodotti"
-            title="Esempi di prodotti su Gireo"
-            text="Alcuni beni che potranno essere noleggiati in piattaforma."
+            eyebrow="Guadagna con Gireo"
+            title="Su Gireo il guadagno parte da beni che oggi non ti stanno rendendo nulla."
+            text="Il cuore del progetto è questo: aiutare persone, professionisti e aziende a trasformare oggetti fermi in un’opportunità concreta di guadagno, senza doverli vendere."
           />
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {featuredProducts.map((product) => {
-              const Icon = product.icon;
-              return (
-                <Card key={product.name} className="overflow-hidden p-0">
-                  <div className="p-6 md:p-7">
-                    <div className="flex items-start justify-between gap-4">
-                      <div
-                        className="flex h-14 w-14 items-center justify-center rounded-2xl"
-                        style={{ backgroundColor: BRAND.soft }}
-                      >
-                        <Icon className="h-7 w-7" style={{ color: BRAND.primary }} />
-                      </div>
+          <div className="mt-12 grid gap-5 lg:grid-cols-[1fr_0.95fr]">
+            <Card className="p-6 md:p-8">
+              <div className="flex items-start gap-4">
+                <div
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl"
+                  style={{ backgroundColor: BRAND.soft }}
+                >
+                  <Boxes className="h-7 w-7" style={{ color: BRAND.primary }} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold">Perché conviene mettere a noleggio il proprio materiale</h3>
+                  <p className="mt-4 text-base leading-8" style={{ color: BRAND.muted }}>
+                    In aziende, uffici, magazzini, cantieri e case ci sono continuamente beni che vengono usati poco, a periodi o solo in alcuni progetti.
+                    Gireo ti permette di <strong style={{ color: BRAND.text }}>trasformare questi oggetti in un flusso di incasso</strong>, senza venderli e senza perderne la disponibilità per sempre.
+                    Questo vale anche per attrezzatura ad alto valore che spesso resta ferma per settimane, come videocamere, fotocamere professionali, droni, gimbal e kit tecnici da produzione.
+                  </p>
+                </div>
+              </div>
 
-                      <span
-                        className="rounded-full px-3 py-1 text-xs font-semibold"
-                        style={{
-                          backgroundColor: BRAND.bg,
-                          color: BRAND.primary,
-                          border: `1px solid ${BRAND.border}`,
-                        }}
-                      >
-                        {product.badge}
-                      </span>
-                    </div>
-
-                    <div className="mt-6">
-                      <p className="text-sm" style={{ color: BRAND.muted }}>
-                        {product.category}
-                      </p>
-                      <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
-                        {product.name}
-                      </h3>
-                    </div>
-
-                    <div className="mt-6 grid grid-cols-2 gap-4">
-                      <div
-                        className="rounded-2xl p-4"
-                        style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                      >
-                        <p className="text-xs uppercase tracking-[0.14em]" style={{ color: BRAND.muted }}>
-                          Prezzo
-                        </p>
-                        <p className="mt-2 text-lg font-semibold">{product.price}</p>
-                      </div>
-
-                      <div
-                        className="rounded-2xl p-4"
-                        style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                      >
-                        <p className="text-xs uppercase tracking-[0.14em]" style={{ color: BRAND.muted }}>
-                          Cauzione
-                        </p>
-                        <p className="mt-2 text-lg font-semibold">{product.deposit}</p>
-                      </div>
-                    </div>
+              <div className="mt-8 space-y-4">
+                {earningCards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="rounded-3xl p-5"
+                    style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
+                  >
+                    <h4 className="text-lg font-semibold">{card.title}</h4>
+                    <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
+                      {card.text}
+                    </p>
                   </div>
-                </Card>
-              );
-            })}
+                ))}
+              </div>
+            </Card>
+
+            <Card className="p-6 md:p-8">
+              <p className="text-sm font-medium" style={{ color: BRAND.primary }}>
+                Esempi concreti
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold">Cosa puoi mettere a noleggio su Gireo</h3>
+              <div className="mt-8 space-y-4">
+                {[
+                  'Tablet e dispositivi usati solo per fiere, eventi o periodi specifici',
+                  'Monitor, laptop e accessori che restano fermi in ufficio o in magazzino',
+                  'Videocamere, fotocamere professionali, ottiche e kit video usati solo su alcuni lavori',
+                  'Droni professionali e accessori tecnici impiegati soltanto in progetti specifici',
+                  'Trapani, strumenti tecnici e attrezzature professionali utilizzate solo a chiamata',
+                  'Materiale da allestimento o dispositivi che servono soltanto in alcune lavorazioni',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 rounded-2xl p-4" style={{ backgroundColor: BRAND.bg }}>
+                    <CheckCircle2 className="mt-0.5 h-5 w-5" style={{ color: BRAND.mintDark }} />
+                    <span className="text-sm leading-7" style={{ color: BRAND.text }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div
+                className="mt-8 rounded-3xl p-6 text-white"
+                style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
+              >
+                <p className="text-sm text-white/75">Messaggio chiave</p>
+                <p className="mt-2 text-2xl font-semibold">
+                  Non vendere per liberarti di un bene. Mettilo a noleggio per farlo rendere.
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -554,8 +550,8 @@ export default function GireoLandingPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Sicurezza"
-            title="Più tutela per utenti e prodotti."
-            text="Pagamento in piattaforma, cauzione, tracking e assicurazioni integrate."
+            title="Gireo non è una semplice bacheca: struttura il noleggio con pagamento, cauzione, tracking e un flusso progettato per diventare sempre più sicuro."
+            text="L’obiettivo di Gireo è creare un sistema più ordinato e credibile per chi noleggia e per chi pubblica, anche con l’evoluzione futura verso coperture assicurative dedicate."
           />
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -583,17 +579,17 @@ export default function GireoLandingPage() {
               {
                 icon: CreditCard,
                 title: 'Pagamento protetto',
-                text: 'Il noleggio viene gestito in piattaforma.',
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Cauzione e copertura',
-                text: 'Più tutela per chi noleggia e per chi pubblica.',
+                text: 'Il noleggio viene pagato in piattaforma e la cauzione viene gestita come garanzia separata.',
               },
               {
                 icon: Truck,
                 title: 'Tracking spedizione',
-                text: 'Andata e ritorno monitorati.',
+                text: 'Andata e ritorno possono essere monitorati senza lasciare la piattaforma.',
+              },
+              {
+                icon: Clock3,
+                title: 'Flusso più rapido',
+                text: 'Richiesta, approvazione e consegna seguono passaggi chiari, senza caos da chat casuali.',
               },
             ].map((item) => {
               const Icon = item.icon;
@@ -619,7 +615,8 @@ export default function GireoLandingPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="FAQ"
-            title="Domande essenziali"
+            title="Le domande che contano davvero prima di usare Gireo."
+            text="Queste sono le domande più naturali che una persona si farà prima di lasciare i propri dati o iniziare a usare la piattaforma."
           />
 
           <div className="mt-12 grid gap-4">
@@ -648,12 +645,27 @@ export default function GireoLandingPage() {
                   Accedi in anteprima a Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-                  Registrati ora per accedere in anteprima a Gireo e partire tra i primi.
+                  Accesso anticipato riservato ai primi utenti.
+                  <br />
+                  <br />
+                  Registrandoti ora potrai:
+                  <br />
+                  • essere tra i primi a pubblicare e guadagnare
+                  <br />  
+                  • testare la piattaforma prima degli altri
+                  <br />  
+                  • partire con un vantaggio quando Gireo sarà online per tutti
                 </p>
               </div>
 
               <div className="rounded-[28px] bg-white/95 p-6 shadow-sm md:p-7">
-                <form className="mt-2 space-y-3" onSubmit={handlePreviewAccess}>
+                <h3 className="text-xl font-semibold" style={{ color: BRAND.text }}>
+                </h3>
+                <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
+                  
+                </p>
+
+                <form className="mt-6 space-y-3" onSubmit={handlePreviewAccess}>
                   <input
                     name="fullName"
                     value={formData.fullName}
@@ -731,7 +743,7 @@ export default function GireoLandingPage() {
                 </form>
 
                 <p className="mt-4 text-xs leading-6" style={{ color: BRAND.muted }}>
-                  Accesso anticipato per chi vuole noleggiare o pubblicare prodotti su Gireo.
+                  Gireo è pensato per chi vuole noleggiare meglio e per chi vuole iniziare a guadagnare da beni che oggi non rendono nulla, inclusi strumenti ad alto valore come videocamere, fotocamere e droni professionali.
                 </p>
               </div>
             </div>
