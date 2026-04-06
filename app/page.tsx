@@ -75,7 +75,7 @@ const featuredProducts = [
     category: 'Videocamera',
     price: '35€/giorno',
     deposit: '200€',
-    badge: 'Verificato',
+    badge: 'Camilla M.',
   },
   {
     icon: Waypoints,
@@ -83,7 +83,7 @@ const featuredProducts = [
     category: 'Drone professionale',
     price: '55€/giorno',
     deposit: '300€',
-    badge: 'Assicurabile',
+    badge: 'Lucia F.',
   },
   {
     icon: Tablet,
@@ -91,7 +91,7 @@ const featuredProducts = [
     category: 'Tablet',
     price: '24€/giorno',
     deposit: '150€',
-    badge: 'Verificato',
+    badge: 'Marco D.',
   },
   {
     icon: Drill,
@@ -99,7 +99,7 @@ const featuredProducts = [
     category: 'Trapano',
     price: '18€/giorno',
     deposit: '80€',
-    badge: 'Assicurabile',
+    badge: 'Caterina D.',
   },
   {
     icon: Monitor,
@@ -107,7 +107,7 @@ const featuredProducts = [
     category: 'Gaming',
     price: '20€/giorno',
     deposit: '150€',
-    badge: 'Verificato',
+    badge: 'Andrea C.',
   },
   {
     icon: Monitor,
@@ -115,7 +115,7 @@ const featuredProducts = [
     category: 'Eventi / Casa',
     price: '25€/giorno',
     deposit: '120€',
-    badge: 'Assicurabile',
+    badge: 'Leonardo B.',
   },
   {
     icon: Drill,
@@ -123,7 +123,7 @@ const featuredProducts = [
     category: 'Pulizia',
     price: '22€/giorno',
     deposit: '100€',
-    badge: 'Verificato',
+    badge: 'Giacomo T.',
   },
   {
     icon: Boxes,
@@ -131,7 +131,7 @@ const featuredProducts = [
     category: 'Lavoro / Outdoor',
     price: '40€/giorno',
     deposit: '250€',
-    badge: 'Assicurabile',
+    badge: 'Angie L.',
   },
   {
     icon: Boxes,
@@ -139,7 +139,7 @@ const featuredProducts = [
     category: 'Eventi',
     price: '28€/giorno',
     deposit: '120€',
-    badge: 'Assicurabile',
+    badge: 'Barbara T.',
   },
 ];
 
