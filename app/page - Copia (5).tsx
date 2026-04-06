@@ -39,10 +39,6 @@ const categories = [
   'Attrezzatura da lavoro',
   'Strumenti per eventi',
   'Device aziendali',
-  'Console e gaming',
-  'Attrezzatura audio/video',
-  'Strumenti per pulizia',
-  'Outdoor e trasporto',
 ];
 
 const flowSteps = [
@@ -103,35 +99,11 @@ const featuredProducts = [
   },
   {
     icon: Monitor,
-    name: 'PlayStation 5',
-    category: 'Gaming',
-    price: '20€/giorno',
-    deposit: '150€',
+    name: 'Monitor 27"',
+    category: 'Device aziendale',
+    price: '16€/giorno',
+    deposit: '90€',
     badge: 'Verificato',
-  },
-  {
-    icon: Monitor,
-    name: 'Proiettore Full HD',
-    category: 'Eventi / Casa',
-    price: '25€/giorno',
-    deposit: '120€',
-    badge: 'Assicurabile',
-  },
-  {
-    icon: Drill,
-    name: 'Idropulitrice',
-    category: 'Pulizia',
-    price: '22€/giorno',
-    deposit: '100€',
-    badge: 'Verificato',
-  },
-  {
-    icon: Boxes,
-    name: 'Generatore portatile',
-    category: 'Lavoro / Outdoor',
-    price: '40€/giorno',
-    deposit: '250€',
-    badge: 'Assicurabile',
   },
   {
     icon: Boxes,
@@ -150,19 +122,14 @@ const trustPoints = [
     text: 'Chi utilizza Gireo viene verificato per aumentare sicurezza e affidabilità.',
   },
   {
-    icon: BadgeCheck,
-    title: 'Recensioni verificate',
-    text: 'Ogni noleggio può generare recensioni verificate per costruire fiducia tra utenti.',
-  },
-  {
     icon: Truck,
     title: 'Spedizione tracciata',
-    text: 'Tracking completo per consegna e reso in un flusso semplice.',
+    text: 'Tracking e reso in un flusso semplice.',
   },
   {
-    icon: CreditCard,
-    title: 'Pagamento e cauzione',
-    text: 'Pagamento in piattaforma con cauzione e soluzioni di copertura integrate.',
+    icon: BadgeCheck,
+    title: 'Cauzione e copertura',
+    text: 'Pagamento in piattaforma con cauzione e assicurazioni integrate.',
   },
 ];
 
@@ -173,11 +140,11 @@ const faqs = [
   },
   {
     q: 'Cosa posso pubblicare?',
-    a: 'Elettronica, attrezzatura professionale, droni, strumenti da lavoro, prodotti per eventi, gaming e molto altro.',
+    a: 'Elettronica, attrezzatura professionale, droni, strumenti da lavoro e materiale per eventi.',
   },
   {
     q: 'Come funziona la sicurezza?',
-    a: 'Pagamento in piattaforma, cauzione, tracking, utenti verificati, coperture integrate e recensioni verificate dopo il noleggio.',
+    a: 'Pagamento in piattaforma, cauzione, tracking e assicurazione integrata.',
   },
 ];
 
@@ -395,7 +362,7 @@ export default function GireoLandingPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
-              Noleggia ciò che ti serve. Fai rendere ciò che non usi.
+              ò che ti serve. Fai rendere ciò che non usi.
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: BRAND.muted }}>
@@ -463,7 +430,7 @@ export default function GireoLandingPage() {
                   Sicurezza integrata
                 </p>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.text }}>
-                  Pagamento, cauzione, spedizione tracciata, utenti verificati e recensioni verificate.
+                  Pagamento, cauzione, spedizione tracciata e assicurazione.
                 </p>
               </div>
             </Card>
@@ -588,10 +555,10 @@ export default function GireoLandingPage() {
           <SectionTitle
             eyebrow="Sicurezza"
             title="Più tutela per utenti e prodotti."
-            text="Pagamento in piattaforma, cauzione, utenti verificati, recensioni verificate, tracking e coperture integrate."
+            text="Pagamento in piattaforma, cauzione, utenti verificati, tracking e assicurazioni integrate."
           />
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
             {trustPoints.map((item) => {
               const Icon = item.icon;
               return (
@@ -611,27 +578,22 @@ export default function GireoLandingPage() {
             })}
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               {
                 icon: ShieldCheck,
                 title: 'Utenti verificati',
-                text: 'Controlli per aumentare affidabilità tra chi pubblica e chi noleggia.',
-              },
-              {
-                icon: BadgeCheck,
-                title: 'Feedback trasparenti',
-                text: 'Recensioni verificate per aiutare gli utenti a scegliere con più fiducia.',
+                text: 'Chi utilizza Gireo viene verificato per aumentare affidabilità e sicurezza.',
               },
               {
                 icon: CreditCard,
                 title: 'Pagamento protetto',
-                text: 'Il noleggio viene gestito in piattaforma con un flusso più ordinato.',
+                text: 'Il noleggio viene gestito in piattaforma.',
               },
               {
                 icon: Truck,
                 title: 'Tracking spedizione',
-                text: 'Andata e ritorno monitorati per ridurre incertezze e problemi.',
+                text: 'Andata e ritorno monitorati.',
               },
             ].map((item) => {
               const Icon = item.icon;
@@ -686,16 +648,16 @@ export default function GireoLandingPage() {
                   Accedi in anteprima a Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-                  Accedi a Gireo prima del lancio ufficiale.
-                  <br />
-                  <br />
-                  Gli utenti selezionati potranno:
-                  <br />
-                  • pubblicare per primi i propri prodotti
-                  <br />
-                  • testare la piattaforma in anteprima
-                  <br />
-                  • partire con un vantaggio quando apriremo al pubblico
+                    Accedi a Gireo prima del lancio ufficiale.
+                    <br />
+                    <br />
+                    Gli utenti selezionati potranno:
+                    <br />
+                    • pubblicare per primi i propri prodotti
+                    <br />
+                    • testare la piattaforma in anteprima
+                    <br />
+                    • partire con un vantaggio quando apriremo al pubblico
                 </p>
               </div>
 
@@ -769,7 +731,7 @@ export default function GireoLandingPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="mt-2 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-70"
+                    className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-70 cursor-pointer"
                     style={{ backgroundColor: BRAND.primary }}
                   >
                     {isSubmitting ? 'Invio in corso...' : 'Ottieni accesso anticipato'}
