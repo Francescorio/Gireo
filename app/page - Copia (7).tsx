@@ -12,6 +12,7 @@ import {
   PackageCheck,
   Search,
   Send,
+  Shield,
   ShieldCheck,
   Tablet,
   Truck,
@@ -44,39 +45,26 @@ const categories = [
   'Outdoor e trasporto',
 ];
 
-const renterSteps = [
-  {
-    icon: Search,
-    title: 'Cerca il prodotto',
-    text: 'Trova ciò che ti serve e invia la richiesta in piattaforma.',
-  },
-  {
-    icon: CreditCard,
-    title: 'Prenota in sicurezza',
-    text: 'Pagamento, cauzione e conferma del noleggio in un flusso semplice.',
-  },
-  {
-    icon: Truck,
-    title: 'Ricevi, usa e restituisci',
-    text: 'Consegna tracciata, utilizzo per il tempo necessario e reso ordinato.',
-  },
-];
-
-const ownerSteps = [
+const flowSteps = [
   {
     icon: PackageCheck,
-    title: 'Registrati e pubblica',
-    text: 'Crea il profilo, verifica i dati e inserisci il prodotto da mettere a noleggio.',
+    title: 'Pubblica il prodotto',
+    text: 'Inserisci il bene che vuoi mettere a noleggio.',
   },
   {
-    icon: BadgeCheck,
+    icon: Search,
     title: 'Ricevi una richiesta',
-    text: 'Valuti la richiesta ricevuta e confermi il noleggio direttamente in piattaforma.',
+    text: 'Chi ne ha bisogno invia la richiesta in piattaforma.',
+  },
+  {
+    icon: Shield,
+    title: 'Gireo gestisce il flusso',
+    text: 'Pagamento, cauzione, assicurazione e tracking.',
   },
   {
     icon: Send,
     title: 'Spedisci e guadagni',
-    text: 'Il prodotto parte, torna indietro e tu monetizzi ciò che non usi.',
+    text: 'Il prodotto parte, viene usato e poi restituito.',
   },
 ];
 
@@ -246,11 +234,10 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 function RuntimeTests() {
   const invalidCategories = categories.length < 3;
-  const invalidRenterSteps = renterSteps.length < 3;
-  const invalidOwnerSteps = ownerSteps.length < 3;
+  const invalidFlowSteps = flowSteps.length !== 4;
   const invalidFaqs = faqs.length < 3;
 
-  if (!invalidCategories && !invalidRenterSteps && !invalidOwnerSteps && !invalidFaqs) return null;
+  if (!invalidCategories && !invalidFlowSteps && !invalidFaqs) return null;
 
   return (
     <div
@@ -259,8 +246,7 @@ function RuntimeTests() {
     >
       <p className="font-semibold">Runtime checks failed</p>
       {invalidCategories ? <p>Le categorie sono troppo poche.</p> : null}
-      {invalidRenterSteps ? <p>Il flusso di chi noleggia deve avere almeno 3 passaggi.</p> : null}
-      {invalidOwnerSteps ? <p>Il flusso di chi pubblica deve avere almeno 3 passaggi.</p> : null}
+      {invalidFlowSteps ? <p>Il flusso grafico deve avere 4 passaggi.</p> : null}
       {invalidFaqs ? <p>Le FAQ devono essere almeno 3.</p> : null}
     </div>
   );
@@ -489,112 +475,38 @@ export default function GireoLandingPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Come funziona"
-            title="Come funziona per chi noleggia e per chi pubblica"
-            text="Due flussi semplici, pensati per chi cerca un prodotto e per chi vuole metterlo a rendere."
+            title="Come funziona Gireo"
+            text="Un flusso semplice per chi noleggia e per chi pubblica."
           />
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <Card className="h-full p-6 md:p-8">
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-2xl"
-                  style={{ backgroundColor: BRAND.soft }}
-                >
-                  <Search className="h-6 w-6" style={{ color: BRAND.primary }} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
-                    Per chi vuole noleggiare
-                  </p>
-                  <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
-                    Trova, prenota, utilizza
-                  </h3>
-                </div>
-              </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {flowSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <Card key={step.title} className="h-full p-6 md:p-7">
+                  <div
+                    className="flex h-14 w-14 items-center justify-center rounded-2xl"
+                    style={{ backgroundColor: BRAND.soft }}
+                  >
+                    <Icon className="h-7 w-7" style={{ color: BRAND.primary }} />
+                  </div>
 
-              <div className="mt-8 space-y-5">
-                {renterSteps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <div
-                      key={step.title}
-                      className="rounded-3xl p-5"
-                      style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
+                  <div className="mt-5 flex items-center gap-3">
+                    <span
+                      className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold text-white"
+                      style={{ backgroundColor: BRAND.primary }}
                     >
-                      <div className="flex items-start gap-4">
-                        <span
-                          className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white"
-                          style={{ backgroundColor: BRAND.primary }}
-                        >
-                          {index + 1}
-                        </span>
+                      {index + 1}
+                    </span>
+                    <h3 className="text-xl font-semibold">{step.title}</h3>
+                  </div>
 
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3">
-                            <Icon className="h-5 w-5" style={{ color: BRAND.primary }} />
-                            <h4 className="text-lg font-semibold">{step.title}</h4>
-                          </div>
-                          <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
-                            {step.text}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-
-            <Card className="h-full p-6 md:p-8">
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex h-12 w-12 items-center justify-center rounded-2xl"
-                  style={{ backgroundColor: BRAND.soft }}
-                >
-                  <PackageCheck className="h-6 w-6" style={{ color: BRAND.primary }} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
-                    Per chi vuole mettere a noleggio
+                  <p className="mt-4 text-base leading-7" style={{ color: BRAND.muted }}>
+                    {step.text}
                   </p>
-                  <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
-                    Pubblica, conferma, guadagna
-                  </h3>
-                </div>
-              </div>
-
-              <div className="mt-8 space-y-5">
-                {ownerSteps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <div
-                      key={step.title}
-                      className="rounded-3xl p-5"
-                      style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                    >
-                      <div className="flex items-start gap-4">
-                        <span
-                          className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white"
-                          style={{ backgroundColor: BRAND.primary }}
-                        >
-                          {index + 1}
-                        </span>
-
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3">
-                            <Icon className="h-5 w-5" style={{ color: BRAND.primary }} />
-                            <h4 className="text-lg font-semibold">{step.title}</h4>
-                          </div>
-                          <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
-                            {step.text}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -698,6 +610,7 @@ export default function GireoLandingPage() {
               );
             })}
           </div>
+
         </div>
       </section>
 
