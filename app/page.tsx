@@ -398,7 +398,8 @@ export default function GireoLandingPage() {
             <div className="mb-6 flex flex-wrap gap-3">
               <Pill>Guadagno da beni inutilizzati</Pill>
               <Pill>Noleggio semplice</Pill>
-              <Pill>Più tutela</Pill>
+              <Pill>Valore che circola</Pill>
+              <Pill>Sicurezza garantita</Pill>
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
