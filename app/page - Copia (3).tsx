@@ -284,13 +284,6 @@ export default function GireoLandingPage() {
           <div className="flex items-center gap-3">
             <a
               href="#accesso-anteprima"
-              className="rounded-2xl px-4 py-2 text-sm font-medium"
-              style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
-            >
-              Scopri come accedere
-            </a>
-            <a
-              href="#accesso-anteprima"
               className="rounded-2xl px-5 py-2.5 text-sm font-semibold text-white"
               style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
             >

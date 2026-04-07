@@ -47,8 +47,8 @@ const categories = [
 const renterSteps = [
   {
     icon: Search,
-    title: 'Cerca il prodotto',
-    text: 'Trova ciò che ti serve e invia la richiesta in piattaforma.',
+    title: 'Registrati e cerca il prodotto',
+    text: 'Crea il profilo, verifica i dati, trova ciò che ti serve e invia la richiesta in piattaforma.',
   },
   {
     icon: CreditCard,
@@ -504,10 +504,10 @@ export default function GireoLandingPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
-                    Per chi vuole noleggiare
+                    Per chi vuole noleggiare 
                   </p>
                   <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
-                    Trova, prenota, utilizza
+                    Trova, prenota, utilizza, risparmia
                   </h3>
                 </div>
               </div>
