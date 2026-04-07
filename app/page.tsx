@@ -611,24 +611,6 @@ export default function GireoLandingPage() {
             })}
           </div>
 
-         
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <Card key={item.title} className="p-5">
-                  <div className="flex items-start gap-4">
-                    <Icon className="mt-1 h-5 w-5" style={{ color: BRAND.mintDark }} />
-                    <div>
-                      <h4 className="font-semibold">{item.title}</h4>
-                      <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
         </div>
       </section>
 
