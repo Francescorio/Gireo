@@ -360,7 +360,7 @@ export default function GireoLandingPage() {
             <div>
               <span className="text-xl font-semibold">Gireo</span>
               <p className="text-xs" style={{ color: BRAND.muted }}>
-                Non vendere, fallo rendere.
+                Il valore che già possiedi.
               </p>
             </div>
           </div>
@@ -402,7 +402,7 @@ export default function GireoLandingPage() {
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
-              Noleggia ciò che ti serve. Fai rendere ciò che non usi.
+              Noleggia ciò che ti serve. Guadagna da ciò che non usi.
             </h1>
 
             <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: BRAND.muted }}>
