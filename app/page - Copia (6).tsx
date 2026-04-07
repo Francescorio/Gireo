@@ -611,7 +611,28 @@ export default function GireoLandingPage() {
             })}
           </div>
 
-         
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                icon: ShieldCheck,
+                title: 'Utenti verificati',
+                text: 'Controlli per aumentare affidabilità tra chi pubblica e chi noleggia.',
+              },
+              {
+                icon: BadgeCheck,
+                title: 'Feedback trasparenti',
+                text: 'Recensioni verificate per aiutare gli utenti a scegliere con più fiducia.',
+              },
+              {
+                icon: CreditCard,
+                title: 'Pagamento protetto',
+                text: 'Il noleggio viene gestito in piattaforma con un flusso più ordinato.',
+              },
+              {
+                icon: Truck,
+                title: 'Tracking spedizione',
+                text: 'Andata e ritorno monitorati per ridurre incertezze e problemi.',
+              },
             ].map((item) => {
               const Icon = item.icon;
               return (
