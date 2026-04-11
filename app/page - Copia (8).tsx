@@ -450,13 +450,31 @@ export default function GireoLandingPage() {
           </div>
 
           <div className="flex items-center">
-            <div className="w-full flex justify-center">
-              <img
-                src="/mockup-gireo.png"
-                alt="Mockup piattaforma Gireo"
-                className="w-full max-w-[520px] rounded-3xl shadow-xl"
-              />
-            </div>
+            <Card className="w-full p-8 md:p-10">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-sm font-semibold">Chi pubblica</p>
+                  <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
+                    Monetizza beni fermi.
+                  </p>
+                </div>
+                <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.bg }}>
+                  <p className="text-sm font-semibold">Chi noleggia</p>
+                  <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
+                    Usa solo ciò che serve.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-3xl p-5" style={{ backgroundColor: BRAND.soft }}>
+                <p className="text-sm font-semibold" style={{ color: BRAND.primary }}>
+                  Sicurezza integrata
+                </p>
+                <p className="mt-2 text-sm leading-7" style={{ color: BRAND.text }}>
+                  Pagamento, cauzione, spedizione tracciata, utenti verificati e recensioni verificate.
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
