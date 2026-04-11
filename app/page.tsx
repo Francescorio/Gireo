@@ -375,7 +375,7 @@ export default function GireoLandingPage() {
             <div>
               <span className="text-xl font-semibold">Gireo</span>
               <p className="text-xs" style={{ color: BRAND.muted }}>
-                Il valore che già possiedi.
+                Il valore che già possiedi
               </p>
             </div>
           </div>
