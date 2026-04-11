@@ -396,10 +396,8 @@ export default function GireoLandingPage() {
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
             <div className="mb-6 flex flex-wrap gap-3">
-              <Pill>Guadagno da beni inutilizzati</Pill>
-              <Pill>Noleggio semplice</Pill>
-              <Pill>Valore che circola</Pill>
-              <Pill>Sicurezza garantita</Pill>
+              <Pill>Utenti verificati</Pill>
+              <Pill>Pagamento e cauzione integrati</Pill>
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
@@ -466,7 +464,6 @@ export default function GireoLandingPage() {
           <SectionTitle
             eyebrow="Come funziona"
             title="Come funziona per chi noleggia e per chi pubblica"
-            text="Due flussi semplici, pensati per chi cerca un prodotto e per chi vuole metterlo a rendere."
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
