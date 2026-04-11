@@ -204,15 +204,7 @@ function GireoLogo({ className = 'h-10 w-10' }: { className?: string }) {
   );
 }
 
-function SectionTitle({
-  eyebrow,
-  title,
-  text,
-}: {
-  eyebrow: string;
-  title: string;
-  text?: string;
-}) {
+function SectionTitle({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   return (
     <div className="max-w-3xl">
       <p className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: BRAND.primary }}>
@@ -280,16 +272,12 @@ export default function GireoLandingPage() {
     email: '',
     useCase: '',
     profileType: '',
-    productInterest: '',
   });
-
   const [formError, setFormError] = useState('');
   const [formSuccess, setFormSuccess] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (formError) setFormError('');
@@ -303,11 +291,10 @@ export default function GireoLandingPage() {
       !formData.fullName.trim() ||
       !formData.email.trim() ||
       !formData.useCase.trim() ||
-      !formData.profileType.trim() ||
-      !formData.productInterest.trim()
+      !formData.profileType.trim()
     ) {
       setFormSuccess('');
-      setFormError('Compila tutti i campi, incluso il prodotto di interesse.');
+      setFormError('Compila nome, email, profilo e modalità di utilizzo prima di inviare la richiesta.');
       return;
     }
 
@@ -334,7 +321,6 @@ export default function GireoLandingPage() {
           email: formData.email,
           profileType: formData.profileType,
           useCase: formData.useCase,
-          productInterest: formData.productInterest,
         }),
       });
 
@@ -347,7 +333,6 @@ export default function GireoLandingPage() {
           email: '',
           useCase: '',
           profileType: '',
-          productInterest: '',
         });
       } else {
         if (result?.errors?.length) {
@@ -381,18 +366,10 @@ export default function GireoLandingPage() {
           </div>
 
           <nav className="hidden items-center gap-7 text-sm md:flex" style={{ color: BRAND.muted }}>
-            <a href="#come-funziona" className="transition hover:opacity-80">
-              Come funziona
-            </a>
-            <a href="#prodotti" className="transition hover:opacity-80">
-              Prodotti
-            </a>
-            <a href="#sicurezza" className="transition hover:opacity-80">
-              Sicurezza
-            </a>
-            <a href="#faq" className="transition hover:opacity-80">
-              FAQ
-            </a>
+            <a href="#come-funziona" className="transition hover:opacity-80">Come funziona</a>
+            <a href="#prodotti" className="transition hover:opacity-80">Prodotti</a>
+            <a href="#sicurezza" className="transition hover:opacity-80">Sicurezza</a>
+            <a href="#faq" className="transition hover:opacity-80">FAQ</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -419,10 +396,8 @@ export default function GireoLandingPage() {
         <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
           <div>
             <div className="mb-6 flex flex-wrap gap-3">
-              <Pill>Guadagno da beni inutilizzati</Pill>
-              <Pill>Noleggio semplice</Pill>
-              <Pill>Valore che circola</Pill>
-              <Pill>Sicurezza garantita</Pill>
+              <Pill>Utenti verificati</Pill>
+              <Pill>Pagamento e cauzione integrati</Pill>
             </div>
 
             <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
@@ -434,19 +409,13 @@ export default function GireoLandingPage() {
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
-              <div
-                className="rounded-3xl p-5"
-                style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}
-              >
+              <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}>
                 <p className="text-sm font-semibold">Hai prodotti inutilizzati?</p>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
                   Mettili a noleggio.
                 </p>
               </div>
-              <div
-                className="rounded-3xl p-5"
-                style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}
-              >
+              <div className="rounded-3xl p-5" style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}>
                 <p className="text-sm font-semibold">Cerchi un prodotto?</p>
                 <p className="mt-2 text-sm leading-7" style={{ color: BRAND.muted }}>
                   Noleggialo solo quando serve.
@@ -495,7 +464,6 @@ export default function GireoLandingPage() {
           <SectionTitle
             eyebrow="Come funziona"
             title="Come funziona per chi noleggia e per chi pubblica"
-            text="Due flussi semplici, pensati per chi cerca un prodotto e per chi vuole metterlo a rendere."
           />
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -509,7 +477,7 @@ export default function GireoLandingPage() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
-                    Per chi vuole noleggiare
+                    Per chi vuole noleggiare 
                   </p>
                   <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
                     Trova, prenota, utilizza, risparmia
@@ -708,7 +676,10 @@ export default function GireoLandingPage() {
 
       <section id="faq" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <SectionTitle eyebrow="FAQ" title="Domande essenziali" />
+          <SectionTitle
+            eyebrow="FAQ"
+            title="Domande essenziali"
+          />
 
           <div className="mt-12 grid gap-4">
             {faqs.map((faq) => (
@@ -728,9 +699,7 @@ export default function GireoLandingPage() {
           <Card className="overflow-hidden p-0">
             <div
               className="grid gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-12"
-              style={{
-                background: `linear-gradient(135deg, ${BRAND.primaryDark} 0%, ${BRAND.primary} 70%, ${BRAND.mint} 100%)`,
-              }}
+              style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark} 0%, ${BRAND.primary} 70%, ${BRAND.mint} 100%)` }}
             >
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">Lancio Gireo</p>
@@ -761,7 +730,6 @@ export default function GireoLandingPage() {
                     style={{ border: `1px solid ${BRAND.border}` }}
                     placeholder="Nome e cognome"
                   />
-
                   <input
                     name="email"
                     type="email"
@@ -801,16 +769,6 @@ export default function GireoLandingPage() {
                     <option value="entrambi">Entrambe le cose</option>
                   </select>
 
-                  <textarea
-                    name="productInterest"
-                    value={formData.productInterest}
-                    onChange={handleChange}
-                    className="w-full rounded-2xl px-4 py-3 text-sm outline-none"
-                    style={{ border: `1px solid ${BRAND.border}`, resize: 'vertical' }}
-                    placeholder="Cosa vorresti noleggiare o mettere a noleggio? (es. drone, videocamera, attrezzatura da lavoro...)"
-                    rows={3}
-                  />
-
                   {formError ? (
                     <div
                       className="rounded-2xl px-4 py-3 text-sm"
@@ -823,11 +781,7 @@ export default function GireoLandingPage() {
                   {formSuccess ? (
                     <div
                       className="rounded-2xl px-4 py-3 text-sm"
-                      style={{
-                        backgroundColor: '#EEF8F2',
-                        color: BRAND.mintDark,
-                        border: `1px solid ${BRAND.mint}`,
-                      }}
+                      style={{ backgroundColor: '#EEF8F2', color: BRAND.mintDark, border: `1px solid ${BRAND.mint}` }}
                     >
                       {formSuccess}
                     </div>
