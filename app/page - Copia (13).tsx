@@ -496,6 +496,14 @@ export default function GireoLandingPage() {
             text="Una panoramica semplice del flusso: ricerca, prenotazione, comunicazione, utilizzo, restituzione e guadagno."
           />
 
+          <div className="mt-6 mx-auto max-w-6xl overflow-hidden rounded-[32px] shadow-sm">
+            <img
+              src="/mockup-processo-gireo-av1.png"
+              alt="Processo Gireo in sei passaggi"
+              className="block w-full h-auto"
+            />
+          </div>
+
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
             <Card className="h-full p-5 md:p-6">
               <div className="flex items-center gap-3">
