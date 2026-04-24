@@ -132,7 +132,7 @@ const faqs = [
   },
   {
     q: 'Come funziona la sicurezza?',
-    a: 'Pagamento in piattaforma, cauzione, tracking, utenti verificati, coperture integrate e recensioni verificate dopo il noleggio.',
+    a: 'Pagamento in piattaforma, cauzione, tracking, utenti verificati e recensioni reali dopo il noleggio.',
   },
 ];
 
