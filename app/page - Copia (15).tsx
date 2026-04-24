@@ -90,12 +90,42 @@ const ownerSteps = [
 ];
 
 const featuredProducts = [
-  { name: 'Droni', price: 'da 55€/giorno', image: '/categoria-drone.png' },
-  { name: 'Fotocamere', price: 'da 45€/giorno', image: '/categoria-fotocamera.png' },
-  { name: 'Attrezzatura da lavoro', price: 'da 24€/giorno', image: '/categoria-trapano.png' },
-  { name: 'Attrezzatura audio/video', price: 'da 15€/giorno', image: '/categoria-luci-set.png' },
-  { name: 'Console e gaming', price: 'da 30€/giorno', image: '/categoria-playstation.png' },
-  { name: 'Tablet e laptop', price: 'da 20€/giorno', image: '/categoria-laptop.png' },
+  {
+    icon: Waypoints,
+    name: 'Droni professionali',
+    price: 'da 55€/giorno',
+    bg: 'rgba(59,0,255,0.08)',
+  },
+  {
+    icon: Camera,
+    name: 'Fotocamere',
+    price: 'da 45€/giorno',
+    bg: 'rgba(95,196,133,0.12)',
+  },
+  {
+    icon: Drill,
+    name: 'Attrezzatura da lavoro',
+    price: 'da 24€/giorno',
+    bg: 'rgba(255,176,0,0.12)',
+  },
+  {
+    icon: Boxes,
+    name: 'Attrezzatura audio/video',
+    price: 'da 15€/giorno',
+    bg: 'rgba(59,0,255,0.08)',
+  },
+  {
+    icon: Monitor,
+    name: 'Console e gaming',
+    price: 'da 30€/giorno',
+    bg: 'rgba(95,196,133,0.12)',
+  },
+  {
+    icon: Tablet,
+    name: 'Tablet e laptop',
+    price: 'da 20€/giorno',
+    bg: 'rgba(255,176,0,0.12)',
+  },
 ];
 
 const trustPoints = [
@@ -424,7 +454,7 @@ export default function GireoLandingPage() {
           <div className="flex items-center lg:justify-end">
             <div className="w-full max-w-[620px]">
               <img
-                src="/gireo-platform-mockup.png"
+                src="/mockup-gireo.png"
                 alt="Mockup piattaforma Gireo"
                 className="w-full rounded-[32px] shadow-xl"
               />
@@ -492,170 +522,148 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      <section id="come-funziona" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="come-funziona" className="px-4 py-8 md:px-6 md:py-12">
         <div className="mx-auto max-w-7xl">
-          <SectionTitle
-            eyebrow="Come funziona"
-            title="Semplice per chi noleggia. Facile per chi guadagna."
-            text="Due percorsi chiari: chi cerca un prodotto lo prenota in pochi clic, chi possiede un bene lo pubblica e lo fa rendere."
-            centered
-          />
+          <Card className="overflow-hidden p-5 md:p-8">
+            <SectionTitle
+              eyebrow="Come funziona"
+              title="Semplice per chi noleggia. Facile per chi guadagna."
+              text="Due percorsi chiari: chi cerca un prodotto lo prenota e lo usa, chi lo possiede lo pubblica e lo monetizza."
+              centered
+            />
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-[0.9fr_1.25fr_1.25fr_0.9fr] lg:items-stretch">
-            <div className="hidden items-center justify-center lg:flex">
-              <img
-                src="/persona-noleggia.png"
-                alt="Persona che noleggia un prodotto su Gireo"
-                className="h-48 w-48 rounded-full object-cover shadow-sm"
-              />
-            </div>
-
-            <Card className="h-full p-5 md:p-6">
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl"
-                  style={{ backgroundColor: BRAND.soft }}
-                >
-                  <Search className="h-5 w-5" style={{ color: BRAND.primary }} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
-                    Per chi cerca un prodotto
-                  </p>
-                  <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
-                    Cerca, prenota, ricevi
-                  </h3>
-                </div>
-              </div>
-
-              <div className="mt-5 space-y-3">
-                {renterSteps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <div
-                      key={step.title}
-                      className="rounded-2xl p-4"
-                      style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                    >
-                      <div className="flex items-start gap-3">
+            <div className="mt-9 grid gap-6 lg:grid-cols-2">
+              <div className="rounded-[28px] p-5" style={{ border: `1px solid ${BRAND.border}`, backgroundColor: '#FFFFFF' }}>
+                <p className="text-sm font-semibold" style={{ color: BRAND.primary }}>Per chi cerca un prodotto</p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                  {renterSteps.map((step, index) => {
+                    const Icon = step.icon;
+                    return (
+                      <div key={step.title} className="text-center">
+                        <div
+                          className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl"
+                          style={{ backgroundColor: index === 2 ? 'rgba(95,196,133,0.12)' : BRAND.soft }}
+                        >
+                          <Icon className="h-8 w-8" style={{ color: index === 2 ? BRAND.mintDark : BRAND.primary }} />
+                        </div>
                         <span
-                          className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
-                          style={{ backgroundColor: BRAND.primary }}
+                          className="-mt-3 ml-10 flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold text-white"
+                          style={{ backgroundColor: index === 2 ? BRAND.mintDark : BRAND.primary }}
                         >
                           {index + 1}
                         </span>
-
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3">
-                            <Icon className="h-4 w-4" style={{ color: BRAND.primary }} />
-                            <h4 className="text-base font-semibold">{step.title}</h4>
-                          </div>
-                          <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
-                            {step.text}
-                          </p>
-                        </div>
+                        <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
+                        <p className="mt-2 text-xs leading-5" style={{ color: BRAND.muted }}>{step.text}</p>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </Card>
-
-            <Card className="h-full p-5 md:p-6">
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl"
-                  style={{ backgroundColor: 'rgba(95,196,133,0.14)' }}
-                >
-                  <PackageCheck className="h-5 w-5" style={{ color: BRAND.mintDark }} />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.mintDark }}>
-                    Per chi ha un prodotto
-                  </p>
-                  <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
-                    Pubblica, consegna, guadagna
-                  </h3>
+                    );
+                  })}
                 </div>
               </div>
 
-              <div className="mt-5 space-y-3">
-                {ownerSteps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <div
-                      key={step.title}
-                      className="rounded-2xl p-4"
-                      style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                    >
-                      <div className="flex items-start gap-3">
+              <div className="rounded-[28px] p-5" style={{ border: `1px solid ${BRAND.border}`, backgroundColor: '#FFFFFF' }}>
+                <p className="text-sm font-semibold" style={{ color: BRAND.mintDark }}>Per chi ha un prodotto</p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                  {ownerSteps.map((step, index) => {
+                    const Icon = step.icon;
+                    return (
+                      <div key={step.title} className="text-center">
+                        <div
+                          className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl"
+                          style={{ backgroundColor: index === 1 ? 'rgba(255,176,0,0.12)' : 'rgba(95,196,133,0.12)' }}
+                        >
+                          <Icon className="h-8 w-8" style={{ color: index === 1 ? '#D48100' : BRAND.mintDark }} />
+                        </div>
                         <span
-                          className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
-                          style={{ backgroundColor: BRAND.mintDark }}
+                          className="-mt-3 ml-10 flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold text-white"
+                          style={{ backgroundColor: index === 1 ? '#D48100' : BRAND.mintDark }}
                         >
                           {index + 1}
                         </span>
-
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3">
-                            <Icon className="h-4 w-4" style={{ color: BRAND.mintDark }} />
-                            <h4 className="text-base font-semibold">{step.title}</h4>
-                          </div>
-                          <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
-                            {step.text}
-                          </p>
-                        </div>
+                        <h3 className="mt-2 text-base font-semibold">{step.title}</h3>
+                        <p className="mt-2 text-xs leading-5" style={{ color: BRAND.muted }}>{step.text}</p>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </Card>
-
-            <div className="hidden items-center justify-center lg:flex">
-              <img
-                src="/persona-pubblica.png"
-                alt="Persona che pubblica un prodotto su Gireo"
-                className="h-48 w-48 rounded-full object-cover shadow-sm"
-              />
             </div>
-          </div>
+          </Card>
         </div>
       </section>
 
-      <section id="prodotti" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="prodotti" className="px-4 py-8 md:px-6 md:py-12">
         <div className="mx-auto max-w-7xl">
-          <SectionTitle
-            eyebrow="Cosa puoi noleggiare"
-            title="Tantissime categorie, infinite possibilità."
-            text="Esempi concreti di prodotti che potranno essere noleggiati su Gireo."
-            centered
-          />
+          <Card className="p-5 md:p-8">
+            <SectionTitle
+              eyebrow="Cosa puoi noleggiare"
+              title="Tantissime categorie, infinite possibilità."
+              text="Una selezione chiara di prodotti pensati per uso personale, professionale, eventi, lavoro e tempo libero."
+              centered
+            />
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {featuredProducts.map((product) => (
-              <Card key={product.name} className="overflow-hidden p-0">
-                <div className="aspect-[4/3] bg-white">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-contain p-3"
-                  />
+            <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+              {featuredProducts.map((product) => {
+                const Icon = product.icon;
+                return (
+                  <div
+                    key={product.name}
+                    className="rounded-[24px] p-5 text-center transition hover:-translate-y-1 hover:shadow-sm"
+                    style={{ backgroundColor: '#FFFFFF', border: `1px solid ${BRAND.border}` }}
+                  >
+                    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-3xl" style={{ backgroundColor: product.bg }}>
+                      <Icon className="h-12 w-12" style={{ color: BRAND.primary }} />
+                    </div>
+                    <h3 className="mt-5 min-h-[42px] text-base font-semibold leading-5">{product.name}</h3>
+                    <p className="mt-2 text-sm" style={{ color: BRAND.muted }}>
+                      <span style={{ color: BRAND.mintDark }} className="font-semibold">{product.price}</span>
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 text-center">
+              <a href="#accesso-anteprima" className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: BRAND.primary }}>
+                Scopri tutte le categorie <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <section className="px-4 py-8 md:px-6 md:py-12">
+        <div className="mx-auto max-w-7xl">
+          <Card className="p-6 md:p-8">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <div className="flex items-start gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl" style={{ backgroundColor: BRAND.soft }}>
+                  <Star className="h-7 w-7" style={{ color: BRAND.primary }} />
                 </div>
-                <div className="border-t p-4" style={{ borderColor: BRAND.border }}>
-                  <h3 className="text-base font-semibold" style={{ color: BRAND.text }}>
-                    {product.name}
-                  </h3>
-                  <p className="mt-2 text-sm" style={{ color: BRAND.muted }}>
-                    {product.price.split(' ')[0]}{' '}
-                    <span className="font-semibold" style={{ color: BRAND.mintDark }}>
-                      {product.price.split(' ')[1]}
-                    </span>
+                <div>
+                  <h2 className="text-2xl font-semibold">Inizia prima del lancio ufficiale.</h2>
+                  <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
+                    Entra nella lista di lancio e aiutaci a capire quali prodotti vuoi noleggiare o mettere a noleggio.
                   </p>
                 </div>
-              </Card>
-            ))}
-          </div>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="#accesso-anteprima"
+                  className="rounded-2xl px-5 py-3 text-center text-sm font-semibold text-white"
+                  style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
+                >
+                  Ottieni accesso anticipato
+                </a>
+                <a
+                  href="#come-funziona"
+                  className="rounded-2xl px-5 py-3 text-center text-sm font-semibold"
+                  style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
+                >
+                  Scopri come funziona
+                </a>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
