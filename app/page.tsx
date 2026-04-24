@@ -498,8 +498,8 @@ export default function GireoLandingPage() {
 
           <div className="mt-6 mx-auto max-w-6xl overflow-hidden rounded-[32px] shadow-sm">
             <img
-              src="/mockup-processo-gireo.png"
-              alt="Panoramica del processo di noleggio Gireo in sei passaggi"
+              src="/mockup-processo-gireo-av1.png"
+              alt="Processo Gireo in sei passaggi"
               className="block w-full h-auto"
             />
           </div>
