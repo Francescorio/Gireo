@@ -218,11 +218,11 @@ function SectionTitle({
       <p className="text-xs font-semibold uppercase tracking-[0.28em]" style={{ color: BRAND.primary }}>
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold leading-tight md:text-4xl" style={{ color: BRAND.text }}>
+      <h2 className="mt-3 text-3xl font-semibold leading-tight md:text-5xl" style={{ color: BRAND.text }}>
         {title}
       </h2>
       {text ? (
-        <p className="mt-4 text-sm leading-7 md:text-base" style={{ color: BRAND.muted }}>
+        <p className="mt-4 text-base leading-8 md:text-lg" style={{ color: BRAND.muted }}>
           {text}
         </p>
       ) : null}
@@ -409,7 +409,7 @@ export default function GireoLandingPage() {
 
       <RuntimeTests />
 
-      <section className="relative overflow-hidden px-4 pb-10 pt-8 md:px-6 md:pb-14 md:pt-12">
+      <section className="relative overflow-hidden px-4 pb-14 pt-10 md:px-6 md:pb-20 md:pt-16">
         <div
           className="absolute inset-0 opacity-80"
           style={{
@@ -423,17 +423,17 @@ export default function GireoLandingPage() {
               <Pill>Pagamento e cauzione integrati</Pill>
             </div>
 
-            <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-4xl" style={{ color: BRAND.text }}>
+            <h1 className="max-w-5xl text-4xl font-semibold leading-tight md:text-6xl" style={{ color: BRAND.text }}>
               Noleggia ciò che ti serve. Guadagna da ciò che non usi.
             </h1>
 
-            <p className="mt-6 max-w-3xl text-base leading-7 md:text-lg" style={{ color: BRAND.muted }}>
+            <p className="mt-6 max-w-3xl text-lg leading-8 md:text-xl" style={{ color: BRAND.muted }}>
               Gireo collega chi cerca un prodotto per un periodo limitato e chi vuole monetizzare beni inutilizzati.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               <div
-                className="rounded-2xl p-4"
+                className="rounded-3xl p-5"
                 style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}
               >
                 <p className="text-sm font-semibold">Hai prodotti inutilizzati?</p>
@@ -442,7 +442,7 @@ export default function GireoLandingPage() {
                 </p>
               </div>
               <div
-                className="rounded-2xl p-4"
+                className="rounded-3xl p-5"
                 style={{ backgroundColor: BRAND.surface, border: `1px solid ${BRAND.border}` }}
               >
                 <p className="text-sm font-semibold">Cerchi un prodotto?</p>
@@ -452,24 +452,24 @@ export default function GireoLandingPage() {
               </div>
             </div>
 
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#accesso-anteprima"
-                className="rounded-2xl px-5 py-3 text-center text-sm font-semibold text-white"
+                className="rounded-2xl px-6 py-4 text-center text-sm font-semibold text-white"
                 style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}
               >
                 Ottieni accesso anticipato
               </a>
               <a
                 href="#come-funziona"
-                className="rounded-2xl px-5 py-3 text-center text-sm font-semibold"
+                className="rounded-2xl px-6 py-4 text-center text-sm font-semibold"
                 style={{ border: `1px solid ${BRAND.border}`, backgroundColor: BRAND.surface }}
               >
                 Scopri come funziona
               </a>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-2">
+            <div className="mt-10 flex flex-wrap gap-3">
               {categories.map((item) => (
                 <Pill key={item}>{item}</Pill>
               ))}
@@ -481,14 +481,14 @@ export default function GireoLandingPage() {
               <img
                 src="/mockup-gireo.png"
                 alt="Mockup piattaforma Gireo"
-                className="w-full max-w-[480px] rounded-3xl shadow-xl"
+                className="w-full max-w-[520px] rounded-3xl shadow-xl"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="come-funziona" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="come-funziona" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Come funziona"
@@ -496,7 +496,7 @@ export default function GireoLandingPage() {
             text="Una panoramica semplice del flusso: ricerca, prenotazione, comunicazione, utilizzo, restituzione e guadagno."
           />
 
-          <div className="mt-6 mx-auto max-w-6xl overflow-hidden rounded-[32px] shadow-sm">
+          <div className="mt-10 mx-auto max-w-7xl overflow-hidden rounded-[32px]">
             <img
               src="/mockup-processo-gireo.png"
               alt="Panoramica del processo di noleggio Gireo in sei passaggi"
@@ -504,37 +504,37 @@ export default function GireoLandingPage() {
             />
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <Card className="h-full p-5 md:p-6">
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <Card className="h-full p-6 md:p-8">
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl"
                   style={{ backgroundColor: BRAND.soft }}
                 >
-                  <Search className="h-5 w-5" style={{ color: BRAND.primary }} />
+                  <Search className="h-6 w-6" style={{ color: BRAND.primary }} />
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
                     Per chi vuole noleggiare
                   </p>
-                  <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
+                  <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
                     Trova, prenota, utilizza, risparmia
                   </h3>
                 </div>
               </div>
 
-              <div className="mt-5 space-y-3">
+              <div className="mt-8 space-y-5">
                 {renterSteps.map((step, index) => {
                   const Icon = step.icon;
                   return (
                     <div
                       key={step.title}
-                      className="rounded-2xl p-4"
+                      className="rounded-3xl p-5"
                       style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-4">
                         <span
-                          className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+                          className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white"
                           style={{ backgroundColor: BRAND.primary }}
                         >
                           {index + 1}
@@ -542,10 +542,10 @@ export default function GireoLandingPage() {
 
                         <div className="flex-1">
                           <div className="flex items-center gap-3">
-                            <Icon className="h-4 w-4" style={{ color: BRAND.primary }} />
-                            <h4 className="text-base font-semibold">{step.title}</h4>
+                            <Icon className="h-5 w-5" style={{ color: BRAND.primary }} />
+                            <h4 className="text-lg font-semibold">{step.title}</h4>
                           </div>
-                          <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
+                          <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
                             {step.text}
                           </p>
                         </div>
@@ -556,36 +556,36 @@ export default function GireoLandingPage() {
               </div>
             </Card>
 
-            <Card className="h-full p-5 md:p-6">
+            <Card className="h-full p-6 md:p-8">
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl"
+                  className="flex h-12 w-12 items-center justify-center rounded-2xl"
                   style={{ backgroundColor: BRAND.soft }}
                 >
-                  <PackageCheck className="h-5 w-5" style={{ color: BRAND.primary }} />
+                  <PackageCheck className="h-6 w-6" style={{ color: BRAND.primary }} />
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: BRAND.primary }}>
                     Per chi vuole mettere a noleggio
                   </p>
-                  <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
+                  <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
                     Pubblica, conferma, guadagna
                   </h3>
                 </div>
               </div>
 
-              <div className="mt-5 space-y-3">
+              <div className="mt-8 space-y-5">
                 {ownerSteps.map((step, index) => {
                   const Icon = step.icon;
                   return (
                     <div
                       key={step.title}
-                      className="rounded-2xl p-4"
+                      className="rounded-3xl p-5"
                       style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-4">
                         <span
-                          className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-semibold text-white"
+                          className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold text-white"
                           style={{ backgroundColor: BRAND.primary }}
                         >
                           {index + 1}
@@ -593,10 +593,10 @@ export default function GireoLandingPage() {
 
                         <div className="flex-1">
                           <div className="flex items-center gap-3">
-                            <Icon className="h-4 w-4" style={{ color: BRAND.primary }} />
-                            <h4 className="text-base font-semibold">{step.title}</h4>
+                            <Icon className="h-5 w-5" style={{ color: BRAND.primary }} />
+                            <h4 className="text-lg font-semibold">{step.title}</h4>
                           </div>
-                          <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
+                          <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
                             {step.text}
                           </p>
                         </div>
@@ -610,7 +610,7 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      <section id="prodotti" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="prodotti" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Prodotti"
@@ -618,12 +618,12 @@ export default function GireoLandingPage() {
             text="Alcuni beni che potranno essere noleggiati in piattaforma."
           />
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {featuredProducts.map((product) => {
               const Icon = product.icon;
               return (
                 <Card key={product.name} className="overflow-hidden p-0">
-                  <div className="p-5 md:p-6">
+                  <div className="p-6 md:p-7">
                     <div className="flex items-start justify-between gap-4">
                       <div
                         className="flex h-14 w-14 items-center justify-center rounded-2xl"
@@ -648,7 +648,7 @@ export default function GireoLandingPage() {
                       <p className="text-sm" style={{ color: BRAND.muted }}>
                         {product.category}
                       </p>
-                      <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
+                      <h3 className="mt-1 text-2xl font-semibold" style={{ color: BRAND.text }}>
                         {product.name}
                       </h3>
                     </div>
@@ -682,7 +682,7 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      <section id="sicurezza" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="sicurezza" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Sicurezza"
@@ -690,11 +690,11 @@ export default function GireoLandingPage() {
             text="Pagamento in piattaforma, cauzione, utenti verificati, recensioni verificate, tracking e coperture integrate."
           />
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trustPoints.map((item) => {
               const Icon = item.icon;
               return (
-                <Card key={item.title} className="p-5 md:p-6">
+                <Card key={item.title} className="p-6 md:p-7">
                   <div
                     className="flex h-14 w-14 items-center justify-center rounded-2xl"
                     style={{ backgroundColor: BRAND.soft }}
@@ -702,7 +702,7 @@ export default function GireoLandingPage() {
                     <Icon className="h-7 w-7" style={{ color: BRAND.primary }} />
                   </div>
                   <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6" style={{ color: BRAND.muted }}>
+                  <p className="mt-3 text-base leading-7" style={{ color: BRAND.muted }}>
                     {item.text}
                   </p>
                 </Card>
@@ -712,13 +712,13 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      <section id="faq" className="px-4 py-10 md:px-6 md:py-14">
+      <section id="faq" className="px-4 py-16 md:px-6 md:py-24">
         <div className="mx-auto max-w-7xl">
           <SectionTitle eyebrow="FAQ" title="Domande essenziali" />
 
-          <div className="mt-8 grid gap-4">
+          <div className="mt-12 grid gap-4">
             {faqs.map((faq) => (
-              <Card key={faq.q} className="p-5 md:p-6">
+              <Card key={faq.q} className="p-6 md:p-7">
                 <h3 className="text-lg font-semibold">{faq.q}</h3>
                 <p className="mt-3 text-base leading-8" style={{ color: BRAND.muted }}>
                   {faq.a}
@@ -729,22 +729,23 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      <section id="accesso-anteprima" className="px-4 pb-14 pt-4 md:px-6 md:pb-16">
+      <section id="accesso-anteprima" className="px-4 pb-20 pt-6 md:px-6 md:pb-24">
         <div className="mx-auto max-w-7xl">
           <Card className="overflow-hidden p-0">
             <div
-              className="grid gap-6 p-6 md:grid-cols-[1.1fr_0.9fr] md:p-8"
+              className="grid gap-8 p-8 md:grid-cols-[1.1fr_0.9fr] md:p-12"
               style={{
                 background: `linear-gradient(135deg, ${BRAND.primaryDark} 0%, ${BRAND.primary} 70%, ${BRAND.mint} 100%)`,
               }}
             >
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">Lancio Gireo</p>
-                <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-4xl">
+                <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-5xl">
                   Accedi in anteprima a Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
                   Accedi a Gireo prima del lancio ufficiale.
+                  <br />
                   <br />
                   Gli utenti selezionati potranno:
                   <br />
@@ -756,7 +757,7 @@ export default function GireoLandingPage() {
                 </p>
               </div>
 
-              <div className="rounded-[32px] bg-white/95 p-6 shadow-sm md:p-7">
+              <div className="rounded-[28px] bg-white/95 p-6 shadow-sm md:p-7">
                 <form className="mt-2 space-y-3" onSubmit={handlePreviewAccess}>
                   <input
                     name="fullName"
