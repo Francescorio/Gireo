@@ -496,12 +496,14 @@ export default function GireoLandingPage() {
             text="Una panoramica semplice del flusso: ricerca, prenotazione, comunicazione, utilizzo, restituzione e guadagno."
           />
 
-          <div className="mt-10 mx-auto max-w-7xl overflow-hidden rounded-[32px]">
-            <img
-              src="/mockup-processo-gireo.png"
-              alt="Panoramica del processo di noleggio Gireo in sei passaggi"
-              className="block w-full h-auto"
-            />
+          <div className="mt-10 overflow-hidden rounded-[32px] p-3 shadow-sm" style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}>
+            <div className="overflow-hidden rounded-[28px] bg-white/95">
+              <img
+                src="/mockup-processo-gireo.png"
+                alt="Panoramica del processo di noleggio Gireo in sei passaggi"
+                className="block w-full"
+              />
+            </div>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
