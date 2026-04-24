@@ -496,7 +496,7 @@ export default function GireoLandingPage() {
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Come funziona"
-            title="Semplice per chi noleggia. Facile per chi guadagna."
+            title="Utilizza quando serve. Guadagna quando non serve."
             text="Due percorsi chiari: chi cerca un prodotto lo prenota in pochi clic, chi possiede un bene lo pubblica e lo fa rendere."
             centered
           />
