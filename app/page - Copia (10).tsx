@@ -493,18 +493,7 @@ export default function GireoLandingPage() {
           <SectionTitle
             eyebrow="Come funziona"
             title="Come funziona per chi noleggia e per chi pubblica"
-            text="Una panoramica semplice del flusso: ricerca, prenotazione, comunicazione, utilizzo, restituzione e guadagno."
           />
-
-          <div className="mt-10 overflow-hidden rounded-[32px] p-3 shadow-sm" style={{ background: `linear-gradient(135deg, ${BRAND.primaryDark}, ${BRAND.primary})` }}>
-            <div className="overflow-hidden rounded-[28px] bg-white/95">
-              <img
-                src="/mockup-processo-gireo.png"
-                alt="Panoramica del processo di noleggio Gireo in sei passaggi"
-                className="block w-full"
-              />
-            </div>
-          </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <Card className="h-full p-6 md:p-8">
