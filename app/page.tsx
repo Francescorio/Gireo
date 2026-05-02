@@ -912,7 +912,6 @@ export default function GireoLandingPage() {
             <SectionTitle
               eyebrow="Sicurezza e fiducia"
               title="La tua attrezzatura, in mani sicure."
-              text="Ogni noleggio è protetto da misure pensate per chi mette in gioco attrezzatura di valore. Niente improvvisazione."
               centered
             />
 
