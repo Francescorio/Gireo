@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import {
   ArrowRight,
   BadgeCheck,
-  Building2,
-  Clapperboard,
   CalendarCheck,
   CheckCircle2,
   CreditCard,
@@ -16,7 +14,6 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
-  Store,
   Truck,
   Users,
 } from 'lucide-react';
@@ -45,14 +42,6 @@ const categories = [
   'Audio e microfoni',
   'Action cam',
   'Accessori e supporti',
-];
-
-const audienceTypes = [
-  { icon: Users, label: 'Privati e appassionati' },
-  { icon: BadgeCheck, label: 'Fotografi, videomaker e creator' },
-  { icon: Building2, label: 'Rental house e studi professionali' },
-  { icon: Store, label: 'Negozi foto/video' },
-  { icon: Clapperboard, label: 'Case di produzione e cinematografiche' },
 ];
 
 const renterSteps = [
@@ -144,8 +133,8 @@ const trustPoints = [
   },
   {
     icon: BadgeCheck,
-    title: 'Utenti e operatori verificati',
-    text: 'Identità e profili verificati, sia personali sia professionali. Recensioni e storico aiutano a costruire fiducia tra privati e operatori.',
+    title: 'Solo creator verificati',
+    text: 'Identità verificata tramite documento e riconoscimento facciale. Profili legati a portfolio e recensioni.',
   },
   {
     icon: CreditCard,
@@ -164,7 +153,7 @@ const lenderPromises = [
 const faqs = [
   {
     q: 'Cos’è Gireo?',
-    a: 'Gireo è il marketplace italiano dedicato al noleggio di attrezzatura foto e video tra privati, professionisti e operatori del settore. Creator, rental house, negozi, studi e case di produzione possono noleggiare o mettere a disposizione camere, ottiche, droni, luci, audio e accessori.',
+    a: 'Gireo è il marketplace italiano dedicato al noleggio di attrezzatura foto e video tra professionisti e appassionati. Camere, ottiche, droni, luci, audio: tutto da creator verificati, con assicurazione e pagamento sicuro.',
   },
   {
     q: 'Sono coperto se l’attrezzatura si rompe?',
@@ -401,11 +390,12 @@ export default function GireoLandingPage() {
               className="max-w-5xl text-4xl font-semibold leading-tight md:text-5xl"
               style={{ color: BRAND.text }}
             >
-              Il marketplace italiano del noleggio foto e video.
+              La community italiana del noleggio foto e video.
             </h1>
 
             <p className="mt-6 max-w-2xl text-base leading-7 md:text-lg" style={{ color: BRAND.muted }}>
-              Noleggia camere, ottiche, droni e luci da privati, professionisti e operatori del settore. Oppure metti a reddito la tua attrezzatura o il tuo inventario quando non viene utilizzato.
+              Noleggia camere, ottiche, droni e luci da altri creator italiani. O metti a reddito la
+              tua attrezzatura quando non la usi.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -444,43 +434,12 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      {/* PER CHI È GIREO */}
-      <section className="px-4 pb-4 md:px-6 md:pb-6">
-        <div className="mx-auto max-w-7xl">
-          <div
-            className="rounded-[28px] bg-white p-5 md:p-6"
-            style={{ border: `1px solid ${BRAND.border}` }}
-          >
-            <p className="text-center text-sm font-semibold" style={{ color: BRAND.text }}>
-              Gireo è pensato per tutto l’ecosistema foto e video
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-              {audienceTypes.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.label}
-                    className="flex items-center gap-3 rounded-2xl px-4 py-3"
-                    style={{ backgroundColor: BRAND.bg, border: `1px solid ${BRAND.border}` }}
-                  >
-                    <Icon className="h-5 w-5 shrink-0" style={{ color: BRAND.primary }} />
-                    <span className="text-sm font-medium leading-5" style={{ color: BRAND.text }}>
-                      {item.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* COME FUNZIONA */}
       <section id="come-funziona" className="px-4 py-10 md:px-6 md:py-14">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Come funziona"
-            title="Noleggia quando ti serve. Metti a reddito quando non la usi."
+            title="Noleggia quando ti serve. Guadagna quando non la usi."
             centered
           />
 
@@ -560,7 +519,7 @@ export default function GireoLandingPage() {
                     className="text-sm font-semibold uppercase tracking-[0.14em]"
                     style={{ color: BRAND.mintDark }}
                   >
-                    Per chi mette a noleggio
+                    Per chi possiede attrezzatura
                   </p>
                   <h3 className="mt-1 text-xl font-semibold" style={{ color: BRAND.text }}>
                     Pubblica, consegna, guadagna
@@ -715,7 +674,7 @@ export default function GireoLandingPage() {
                 <SectionTitle
                   eyebrow="Per chi pubblica"
                   title="Le regole le decidi tu."
-                  text="Che tu sia un privato, un professionista, una rental house, un negozio o una casa di produzione, mantieni il controllo su prezzi, disponibilità e modalità di consegna."
+                  text="La tua attrezzatura, le tue condizioni. Su Gireo non sei un negozio, sei un creator che presta a un altro creator."
                 />
 
                 <div
@@ -742,7 +701,7 @@ export default function GireoLandingPage() {
                   className="mt-7 inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-white"
                   style={{ background: `linear-gradient(135deg, ${BRAND.mintDark}, ${BRAND.mint})` }}
                 >
-                  Metti a reddito la tua attrezzatura
+                  Inizia a guadagnare con la tua attrezzatura
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -758,7 +717,7 @@ export default function GireoLandingPage() {
                   Quanto puoi guadagnare
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold leading-tight" style={{ color: BRAND.text }}>
-                  Trasforma l’attrezzatura ferma in una nuova entrata.
+                  Fino a 600€/mese da una sola camera.
                 </h3>
 
                 <div className="mt-6 space-y-4">
@@ -795,7 +754,7 @@ export default function GireoLandingPage() {
                 </div>
 
                 <p className="mt-6 text-xs leading-6" style={{ color: BRAND.muted }}>
-                  Le rendite variano in base a marca, modello, condizioni, città, stagionalità e disponibilità. Per operatori professionali, Gireo può diventare anche un nuovo canale per valorizzare l’inventario inutilizzato.
+                  Le rendite variano in base a marca, modello, condizioni, città e stagionalità.
                 </p>
               </div>
             </div>
@@ -821,7 +780,7 @@ export default function GireoLandingPage() {
         </div>
       </section>
 
-      {/* ACCESSO ANTEPRIMA */}
+      {/* ACCESSO ANTEPRIMA — INTATTO COME APPROVATO */}
       <section id="accesso-anteprima" className="px-4 pb-14 pt-4 md:px-6 md:pb-16">
         <div className="mx-auto max-w-7xl">
           <Card className="overflow-hidden p-0">
@@ -836,16 +795,17 @@ export default function GireoLandingPage() {
                   Lancio Gireo
                 </p>
                 <h2 className="mt-4 text-3xl font-semibold leading-tight text-white md:text-4xl">
-                  Sii tra i primi utenti e operatori su Gireo
+                  Sii tra i primi creator italiani su Gireo
                 </h2>
                 <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 md:text-lg">
-                  Stiamo selezionando un primo gruppo di privati, fotografi, videomaker, creator, rental house, negozi, studi e case di produzione per testare la piattaforma prima del lancio.
+                  Stiamo selezionando un gruppo ristretto di fotografi, videomaker e creator per
+                  testare la piattaforma prima del lancio.
                   <br />
                   Gli utenti selezionati potranno:
                   <br />
                   • pubblicare per primi la propria attrezzatura
                   <br />
-                  • accedere al gear pubblicato da privati e operatori professionali pre-lancio
+                  • accedere al gear di altri creator pre-lancio
                   <br />
                   • zero commissioni sui primi 3 noleggi
                   <br />
@@ -884,15 +844,11 @@ export default function GireoLandingPage() {
                     <option value="" disabled>
                       Cosa fai?
                     </option>
-                    <option value="privato-appassionato">Privato / appassionato</option>
                     <option value="fotografo">Fotografo professionista</option>
                     <option value="videomaker">Videomaker / videografo</option>
                     <option value="creator">Content creator</option>
-                    <option value="studio-agenzia">Studio / agenzia</option>
-                    <option value="rental-house">Rental house / noleggiatore professionale</option>
-                    <option value="negozio">Negozio foto / video</option>
-                    <option value="casa-produzione">Casa di produzione / cinematografica</option>
-                    <option value="altro-operatore">Altro operatore del settore</option>
+                    <option value="studio">Studio / agenzia</option>
+                    <option value="appassionato">Appassionato / pro-am</option>
                     <option value="altro">Altro</option>
                   </select>
 
@@ -907,7 +863,7 @@ export default function GireoLandingPage() {
                       Come vuoi usare Gireo?
                     </option>
                     <option value="noleggiare">Noleggiare attrezzatura</option>
-                    <option value="pubblicare">Mettere a noleggio attrezzatura / inventario</option>
+                    <option value="pubblicare">Mettere a noleggio il mio gear</option>
                     <option value="entrambi">Entrambe le cose</option>
                   </select>
 
@@ -917,7 +873,7 @@ export default function GireoLandingPage() {
                     onChange={handleChange}
                     className="w-full rounded-2xl px-4 py-3 text-sm outline-none"
                     style={{ border: `1px solid ${BRAND.border}`, resize: 'vertical' }}
-                    placeholder="Quale attrezzatura ti interessa noleggiare o mettere a noleggio? (es. Sony A7 IV, ottica 24-70 f/2.8, DJI Mavic 3 Pro, set luci Aputure...)"
+                    placeholder="Quale gear ti interessa noleggiare o mettere a noleggio? (es. Sony A7 IV, ottica 24-70 f/2.8, DJI Mavic 3 Pro, set luci Aputure...)"
                     rows={3}
                   />
 
@@ -959,7 +915,7 @@ export default function GireoLandingPage() {
                 </form>
 
                 <p className="mt-4 text-xs leading-6" style={{ color: BRAND.muted }}>
-                  Accesso anticipato aperto a privati e operatori professionali del settore foto/video. Risposta entro pochi giorni.
+                  Accesso riservato a creator italiani. Risposta entro pochi giorni.
                 </p>
               </div>
             </div>
