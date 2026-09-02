@@ -245,7 +245,6 @@ export default function GireoLandingPage() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    city: '',
     useCase: '',
     profileType: '',
     productInterest: '',
@@ -270,13 +269,12 @@ export default function GireoLandingPage() {
     if (
       !formData.fullName.trim() ||
       !formData.email.trim() ||
-      !formData.city.trim() ||
       !formData.useCase.trim() ||
       !formData.profileType.trim() ||
       !formData.productInterest.trim()
     ) {
       setFormSuccess('');
-      setFormError('Compila tutti i campi, inclusa la città e l’attrezzatura di interesse.');
+      setFormError('Compila tutti i campi, incluso l’attrezzatura di interesse.');
       return;
     }
 
@@ -301,7 +299,6 @@ export default function GireoLandingPage() {
         body: JSON.stringify({
           fullName: formData.fullName,
           email: formData.email,
-          city: formData.city,
           profileType: formData.profileType,
           useCase: formData.useCase,
           productInterest: formData.productInterest,
@@ -315,7 +312,6 @@ export default function GireoLandingPage() {
         setFormData({
           fullName: '',
           email: '',
-          city: '',
           useCase: '',
           profileType: '',
           productInterest: '',
@@ -878,15 +874,6 @@ export default function GireoLandingPage() {
                     placeholder="Email"
                   />
 
-                  <input
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    className="w-full rounded-2xl px-4 py-3 text-sm outline-none"
-                    style={{ border: `1px solid ${BRAND.border}` }}
-                    placeholder="Città"
-                  />
-
                   <select
                     name="profileType"
                     value={formData.profileType}
@@ -895,7 +882,7 @@ export default function GireoLandingPage() {
                     style={{ border: `1px solid ${BRAND.border}` }}
                   >
                     <option value="" disabled>
-                      Come operi nel settore?
+                      Cosa fai?
                     </option>
                     <option value="privato-appassionato">Privato / appassionato</option>
                     <option value="fotografo">Fotografo professionista</option>
@@ -917,10 +904,10 @@ export default function GireoLandingPage() {
                     style={{ border: `1px solid ${BRAND.border}` }}
                   >
                     <option value="" disabled>
-                      Come utilizzerai Gireo?
+                      Come vuoi usare Gireo?
                     </option>
                     <option value="noleggiare">Noleggiare attrezzatura</option>
-                    <option value="pubblicare">Mettere a noleggio attrezzatura</option>
+                    <option value="pubblicare">Mettere a noleggio attrezzatura / inventario</option>
                     <option value="entrambi">Entrambe le cose</option>
                   </select>
 
